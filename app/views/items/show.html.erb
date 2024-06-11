@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <img src="<%= @item.picture %>" class="img-details" alt="<%= @item.name %>">
+    </div>
+    <div class="col-4 card-details">
+      <h3><%= @item.category.upcase %></h3>
+      <h2><%= @item.name.capitalize %></h2>
+      <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+      <p><%= @item.description %></p>
+    </div>
+  </div>
+</div>
