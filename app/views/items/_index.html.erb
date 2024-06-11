@@ -1,0 +1,10 @@
+<h1>Tous les objets disponibles</h1>
+
+<ul>
+<% @items.each do |item| %>
+<li>
+<%= item.name %>
+<%= image_tag(item.picture) %>
+</li>
+<% end %>
+</ul>
