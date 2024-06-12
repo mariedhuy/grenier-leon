@@ -1,10 +1,14 @@
 <h1>Tous les objets disponibles</h1>
 
-<ul>
-<% @items.each do |item| %>
-<li>
-<%= item.name %>
-<%= image_tag(item.picture) %>
-</li>
-<% end %>
-</ul>
+<div class="cards">
+  <% @items.each do |item| %>
+    <div class="card-item">
+      <%= image_tag(item.picture) %>
+      <div class="card-item-infos">
+        <h2><%= item.name %></h2>
+        <p><%= item.description %></p>
+        <p><%= link_to "Voir", item_path(item) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
