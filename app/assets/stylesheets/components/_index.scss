@@ -4,6 +4,13 @@
 @import "form_legend_clear";
 @import "navbar";
 
+a:link {
+  text-decoration: none;
+}
+
+button > a {
+  color: white !important
+}
 
 .card-item {
   overflow: hidden;
@@ -30,7 +37,7 @@
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
+  margin-bottom: 8px;
   margin-top: 8px;
 }
 
