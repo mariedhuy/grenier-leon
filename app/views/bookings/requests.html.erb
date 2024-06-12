@@ -1,0 +1,15 @@
+<h1>Demandes d'emprunt</h1>
+
+<ul>
+<li>
+<% @requests.each do |request| %>
+<%= request.item.name %>
+du <%= request.start_date %> au <%= request.end_date %>
+<br>
+<%= link_to "Je valide", requests_path %> <!-- Changer le path -->
+<%= link_to "Je refuse", requests_path %> <!-- Changer le path -->
+
+
+<% end %>
+</li>
+</ul>
