@@ -1,15 +1,16 @@
 <h1>Demandes d'emprunt</h1>
 
-<ul>
-<li>
-<% @requests.each do |request| %>
-<%= request.item.name %>
-du <%= request.start_date %> au <%= request.end_date %>
-<br>
-<%= link_to "Je valide", requests_path %> <!-- Changer le path -->
-<%= link_to "Je refuse", requests_path %> <!-- Changer le path -->
 
-
-<% end %>
-</li>
-</ul>
+<div class="cards">
+  <div class="card-request">
+    <% @requests.each do |request| %>
+      <%= image_tag(request.item.picture) %>
+      <div class="card-request-infos">
+        <h2><%= request.item.name %></h2>
+        <p>du <%= request.start_date %> au <%= request.end_date %></p>
+    </div>
+    <%= link_to "Je valide", requests_path, class: "btn btn-green" %>
+    <%= link_to "Je refuse", requests_path, class: "btn btn-red" %>
+    <% end %>
+  </div>
+</div>

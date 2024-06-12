@@ -10,3 +10,5 @@
 
 Item.create(name: "plat à paella", category: "cuisine", picture: "https://www.mauviel-boutique.com/452-large_default/plat-a-paella-m-steel.jpg", description: "plat à paella")
 Booking.create(item_id: 1, status: "requested", start_date: 20240630, end_date: 20240710)
+
+
