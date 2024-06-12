@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+User.destroy_all
+Item.destroy_all
+
+user_1 = User.create(email:"vald@gmail.com", password:"totojnfvjkr")
+item_1 = Item.create(name:"perceuse", category:"outil", description:"blabalbahbfrjehbre", picture:"https://im.qccdn.fr/node/guide-d-achat-perceuses-a-percussion-6299/thumbnail_800x480px-122138.jpg", user:user_1)
+
+
+puts "Everything is done"

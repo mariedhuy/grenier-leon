@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @item.name %></h1>
+      <%= image_tag @item.picture %>
+    </div>
+  </div>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <p><strong>Catégorie: </strong><%= @item.category %></p>
+    <p><strong>Description: </strong><%= @item.description %></p>
+  </div>
+  <div class="col-md-6">
+  <div class="card">
+  <div class="card-header bg-light"><h3 class = "card-title">50 euros</h3></div>
+  <%= simple_form_for [@item, @booking] do |f| %>
+   <%= f.input :status, as: :hidden, input_html: {value:"pending"} %>
+  <%= f.input :start_date, label:"Check in", input_html: { class: 'form-control flatpickr', data: { controller: "flatpickr", flatpickr_date_format: "Y-m-d" } }%>
+  <%= f.input :end_date, label:"Check out", input_html: { class: 'form-control flatpickr', data: { controller: "flatpickr", flatpickr_date_format: "Y-m-d" } }%>
+  <%= f.submit %>
+<% end %>
+</div>
+
+
+</div>
+</div>
+
+</div>
