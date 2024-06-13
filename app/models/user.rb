@@ -1,10 +1,8 @@
 class User < ApplicationRecord
-
-  has_many :items, dependent: :destroy
-  has_many :bookings, dependent: :destroy
-
+  has_many :items
+  has_many :bookings
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 end
