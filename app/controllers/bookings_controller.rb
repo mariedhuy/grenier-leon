@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to item_path(@item), notice:"You have correctly rent the item"
+      redirect_to item_path(@item), notice: "Votre demande de réservation a bien été envoyée."
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,10 +29,9 @@ class BookingsController < ApplicationController
   def edit
   end
 
-
   def update
     if @booking.save
-      redirect_to item_path(@item), notice:"You have correctly rent the item"
+      redirect_to item_path(@item), notice: "You have correctly rent the item"
     else
       render :edit, status: :unprocessable_entity
     end
