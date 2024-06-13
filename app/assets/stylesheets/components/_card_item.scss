@@ -1,0 +1,27 @@
+.img-details {
+  height: 400px;
+  width: 100%;
+  object-fit: scale-down;
+  background-color: white;
+  border: 1px solid #d4d3d3
+}
+
+.card-details h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-details h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-details i {
+  font-size: 16px;
+}
+
+.card-details p {
+  font-size: 16px;
+  background-color: #d4d3d3;
+  margin-top: 8px;
+}
