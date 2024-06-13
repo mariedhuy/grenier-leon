@@ -9,6 +9,8 @@
      <p><%= @item.description %></p>
      <%= simple_form_for [@item, @booking] do |f| %>
        <%= f.input :status, as: :hidden, input_html: {value:"pending"} %>
+       <%= f.input :start_date, as: :date, label:"Début", input_html: { class: 'form-control flatpickr', data: { controller: "flatpickr", flatpickr_date_format: "Y-m-d" } }%>
+       <%= f.input :end_date, as: :date, label:"Fin", input_html: { class: 'form-control flatpickr', data: { controller: "flatpickr", flatpickr_date_format: "Y-m-d" } }%>
        <%= f.submit "Envoyer ma demande" %>
      <% end %>
    </div>
