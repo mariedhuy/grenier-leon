@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   before_action :set_item, only: [:create, :new]
   before_action :set_booking, only: [:show, :edit, :destroy]
   before_action :authenticate_user!
@@ -11,7 +12,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    @booking = @booking.new
   end
 
   def create
