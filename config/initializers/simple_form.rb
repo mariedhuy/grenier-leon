@@ -20,7 +20,6 @@ SimpleForm.setup do |config|
     # given input by passing: `f.input EXTENSION_NAME => false`.
     # You can make any of these extensions optional by
     # renaming `b.use` to `b.optional`.
-    config.input_mappings = { date: :date_picker }
 
     # Determines whether to use HTML5 (:email, :url, ...)
     # and required attributes
