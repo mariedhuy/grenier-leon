@@ -1,4 +1,14 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
+  def index
+    @items = Item.all
+  end
+
+  def show
+    @booking = Booking.new
+  end
 
   def new
     @item = Item.new
@@ -6,9 +16,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-    @item.user_id = 1
+    @item.user = current_user
     if @item.save
-      redirect_to root_path
+      redirect_to @item
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,7 +26,11 @@ class ItemsController < ApplicationController
 
   private
 
-  def items_params
-    params.require(:item).permit(:name, :category, :picture, :description)
+  def item_params
+    params.require(:item).permit(:name, :category, :description, :picture)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
