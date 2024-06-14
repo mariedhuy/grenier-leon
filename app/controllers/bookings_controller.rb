@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_item, only: %i[create new]
   before_action :set_booking, only: %i[show edit update destroy]
+
   before_action :authenticate_user!
 
   def index
@@ -24,6 +25,11 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def requests
+    @owneritems = Item.where(user: current_user)
+    @requests = Booking.where(status: "pending", item: @owneritems)
   end
 
   def edit
