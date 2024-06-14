@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   before_action :set_item, only: [:create, :new]
   before_action :set_booking, only: [:show, :edit, :destroy]
   before_action :authenticate_user!
@@ -26,6 +25,13 @@ class BookingsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def requests
+    @owneritems = Item.where(user: current_user)
+    @requests = Booking.where(status: "pending", item: @owneritems) # Comment filtrer aussi sur les owner items?
+    
+  end
+
 
   def edit
   end
