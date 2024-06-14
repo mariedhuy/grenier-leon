@@ -27,7 +27,9 @@ class BookingsController < ApplicationController
   end
 
   def requests
-    @requests = Booking.where(status: "requested") # Il manque la logique de filtre sur les bookings qui concernent les items du user connecté
+    @owneritems = Item.where(user: current_user)
+    @requests = Booking.where(status: "pending", item: @owneritems) # Comment filtrer aussi sur les owner items?
+    
   end
 
 
