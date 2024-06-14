@@ -9,6 +9,8 @@
      <p><%= @item.description %></p>
      <%= simple_form_for [@item, @booking] do |f| %>
        <%= f.input :status, as: :hidden, input_html: {value:"pending"} %>
+       <%= f.input :start_date, as: :date %>
+       <%= f.input :end_date, as: :date %>
        <%= f.submit "Envoyer ma demande" %>
      <% end %>
    </div>

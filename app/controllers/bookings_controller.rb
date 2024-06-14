@@ -12,13 +12,14 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = @booking.new
+    @booking = Booking.new
   end
 
   def create
+    @booking = Booking.new(booking_params)
     @booking = @item.bookings.build(booking_params)
     @booking.user = current_user
-
+    @booking.item = @item
     if @booking.save
       redirect_to item_path(@item), notice: "Votre demande de réservation a bien été envoyée."
     else
@@ -45,7 +46,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:status, :start_date, :end_date)
   end
 
   def set_booking
