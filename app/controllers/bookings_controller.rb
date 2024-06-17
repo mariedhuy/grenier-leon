@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show update destroy]
 
   def index
-    @bookings = current_user.bookings
+    @bookings = Booking.where(user: current_user)
   end
 
   def show
@@ -53,4 +53,5 @@ class BookingsController < ApplicationController
   def set_item
     @item = Item.find(params[:item_id])
   end
+
 end

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :bookings, only: [:destroy, :update]
+  resources :bookings, only: [:destroy, :update, :index]
   get '/requests', to: 'bookings#requests'
   get '/my_items', to: 'items#my_items'
 
