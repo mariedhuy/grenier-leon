@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_item, only: [:create, :new]
-  before_action :set_booking, only: [:show, :edit, :destroy]
+  before_action :set_item, only: %i[create new]
+  before_action :set_booking, only: %i[show update destroy]
+
   before_action :authenticate_user!
 
   def index
@@ -16,7 +17,6 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking = @item.bookings.build(booking_params)
     @booking.user = current_user
     @booking.item = @item
     if @booking.save
@@ -28,25 +28,18 @@ class BookingsController < ApplicationController
 
   def requests
     @owneritems = Item.where(user: current_user)
-    @requests = Booking.where(status: "pending", item: @owneritems) # Comment filtrer aussi sur les owner items?
-    
-  end
-
-
-  def edit
+    @requests = Booking.where(status: "pending", item: @owneritems)
   end
 
   def update
-    if @booking.save
-      redirect_to item_path(@item), notice: "You have correctly rent the item"
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    @booking.update(status: "confirmed")
+    @booking.update(booking_params)
+    redirect_to requests_path, notice: "Votre #{@booking.item.name} est réservé(e) du #{@booking.start_date} au #{@booking.end_date}"
   end
 
   def destroy
     @booking.destroy
-    redirect_to index_path
+    redirect_to requests_path, status: :see_other
   end
 
   private
@@ -56,7 +49,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = current_user.booking.find(params[:id])
+    @booking = current_user.bookings.find(params[:id])
   end
 
   def set_item

@@ -13,8 +13,14 @@
         <p>demande faite par <%= request.user.email %></p>
         <p>objet appartenant à <%= request.item.user.email %></p>
       </div>
-    <%= link_to "Je valide", requests_path, class: "btn btn-green" %>
-    <%= link_to "Je refuse", requests_path, class: "btn btn-red" %>
+    <%= link_to "Je valide", booking_path(request),
+                data: { turbo_method: :patch, turbo_confirm: "Vous validez la réservation !" },
+                class: "btn btn-green"
+            %>
+    <%= link_to "Je refuse", booking_path(request),
+                data: { turbo_method: :delete, turbo_confirm: "Confirmez votre refus" },
+                class: "btn btn-red"
+            %>
   </div>
     <% end %>
 </div>
