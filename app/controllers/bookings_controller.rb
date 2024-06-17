@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bookings = current_user.bookings
+    # @bookings = current_user.bookings
+    @bookings = Booking.where(status: :'Emprunt en cours', user: current_user)
   end
 
   def show
@@ -29,7 +30,6 @@ class BookingsController < ApplicationController
   def requests
     @owneritems = Item.where(user: current_user)
     @requests = Booking.where(status: "pending", item: @owneritems) # Comment filtrer aussi sur les owner items?
-    
   end
 
 
@@ -62,4 +62,5 @@ class BookingsController < ApplicationController
   def set_item
     @item = Item.find(params[:item_id])
   end
+
 end
