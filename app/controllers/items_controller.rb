@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def my_items
+    @items = Item.where(user: current_user)
+  end
+
   private
 
   def item_params
