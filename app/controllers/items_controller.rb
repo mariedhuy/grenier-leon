@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
+  def items_params
     params.require(:item).permit(:name, :category, :description, :picture)
   end
 
