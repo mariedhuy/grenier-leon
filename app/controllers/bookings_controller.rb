@@ -27,16 +27,14 @@ class BookingsController < ApplicationController
   end
 
   def requests
-    @bookings = Booking.where(status: "pending", user_id: current_user.id)
+    @owneritems = Item.where(user: current_user)
+    @requests = Booking.where(status: "pending", item: @owneritems)
   end
 
   def update
     @booking.update(status: "confirmed")
-    if @booking.update(booking_params)
-      redirect_to requests_path, notice: "Votre #{@booking.item.name} est réservé(e) du #{@booking.start_date} au #{@booking.end_date}"
-    else
-      puts "hello"
-    end
+    @booking.update(booking_params)
+    redirect_to requests_path, notice: "Votre #{@booking.item.name} est réservé(e) du #{@booking.start_date} au #{@booking.end_date}"
   end
 
   def destroy
