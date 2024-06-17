@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :bookings, only: [:destroy, :update]
   get '/requests', to: 'bookings#requests'
+  get '/my_items', to: 'items#my_items'
+
   resources :items do
     resources :bookings, only: [:create]
   end
