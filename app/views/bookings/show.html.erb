@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8">
+    <h1 class="mb-4">Pour votre votre réservation <%=@booking.item.name %></h1>
+      <div class="mb-3">
+        <h4>Votre réservation</h4>
+        <div class="d-flex align-items-center">
+          <p class="me-2"><strong> <%= @booking.start_date.strftime("%a. %d %b") %></strong> <i class="fa-solid fa-arrow-right"></i> <strong> <%= @booking.end_date.strftime("%a. %d %b") %></strong> </p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <img src="<%= @booking.item.picture%> "class="img-fluid rounded" style="max-width:600px;">
+      </div>
+    </div>
+
+    <div class="col-md-4 bg-white rounded">
+      <div class="sticky-top py-4" >
+      <img class="avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/155112860?v=4"/>
+        <p>Loueur</p>
+        <%=@booking.item.user.name %>
+        <p class="text-secondary"><strong>Informations vérifiées</strong> <i class="fa-solid fa-check"></i></p>
+        <p><strong>Membre depuis :</strong><%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
+        <p><strong>Email:</strong> <%=@booking.item.user.email%></p>
+        <p><strong>Téléphone:</strong><%=@booking.item.user.phone%></p>
+        <p><strong>Adresse:</strong><%=@booking.item.user.address%></p>
+      </div>
+
+      <div class="sticky-top py-4" >
+      <img class="avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/159618368?v=4" />
+        <p>utilisateur</p>
+        <%=  @booking.user.email %></p>
+        <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
+        <p><strong>Email</strong> <%=@booking.item.user.email%></p>
+        <p><strong>Téléphone</strong><%=@booking.item.user.phone%></p>
+      </div>
+    </div>
+
+    <div class="mb-3">
+    <p><strong>Catégorie du produit :</strong> <%=@booking.item.category %></p>
+   </div>
+
+    <div class="mb-3">
+    <p><strong>Description du produit :</strong> <%=@booking.item.description %> </p>
+   </div>
+
+
+
+
+  </div>
+</div>
