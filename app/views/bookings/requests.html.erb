@@ -2,24 +2,43 @@
   <h1>Mes prêts à valider</h1>
   <div class="cards">
     <% @requests.each do |request| %>
-      <div class="card-request">
-        <%= image_tag(request.item.picture) %>
-        <div class="card-request-infos">
-          <h2><%= request.item.name %></h2>
-          <p>du <%= request.start_date %> au <%= request.end_date %></p>
-          <p>demande faite par <%= request.user.email %></p>
-          <p>objet appartenant à <%= request.item.user.email %></p>
+      <% if request.status == "pending" %>
+        <div class="card-request">
+          <%= image_tag(request.item.picture) %>
+          <div class="card-request-infos">
+            <h2><%= request.item.name %></h2>
+            <p>du <%= request.start_date %> au <%= request.end_date %></p>
+            <p>demande faite par <%= request.user.email %></p>
+            <p>objet appartenant à <%= request.item.user.email %></p>
+          </div>
+          <%= link_to "Je valide", booking_path(request),
+                    data: { turbo_method: :patch, turbo_confirm: "Vous validez la réservation !" },
+                    class: "btn btn-green"
+                %>
+          <%= link_to "Je refuse", booking_path(request),
+                    data: { turbo_method: :delete, turbo_confirm: "Confirmez votre refus" },
+                    class: "btn btn-red"
+                %>
         </div>
-      <%= link_to "Je valide", booking_path(request),
-                  data: { turbo_method: :patch, turbo_confirm: "Vous validez la réservation !" },
-                  class: "btn btn-green"
-              %>
-      <%= link_to "Je refuse", booking_path(request),
-                  data: { turbo_method: :delete, turbo_confirm: "Confirmez votre refus" },
-                  class: "btn btn-red"
-              %>
-    </div>
       <% end %>
+    <% end %>
   </div>
+    <br>
+    <h1>Mes prêts validés</h1>
+    <div class="cards">
+    <% @requests.each do |request| %>
+      <% if request.status == "confirmed" %>
+        <div class="card-request">
+          <%= image_tag(request.item.picture) %>
+          <div class="card-request-infos">
+            <h2><%= request.item.name %></h2>
+            <p>du <%= request.start_date %> au <%= request.end_date %></p>
+            <p>demande faite par <%= request.user.email %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 
 </div>
