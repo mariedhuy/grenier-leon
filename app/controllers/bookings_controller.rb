@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
 
   def requests
     @owneritems = Item.where(user: current_user)
-    @requests = Booking.where(status: "pending", item: @owneritems)
+    @requests = Booking.where(item: @owneritems)
   end
 
   def update
