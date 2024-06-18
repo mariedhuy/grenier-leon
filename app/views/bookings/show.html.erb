@@ -15,9 +15,9 @@
     </div>
 
     <div class="col-md-4 bg-white rounded">
-      <div class="sticky-top py-4" >
+      <div class="" >
       <img class="avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/155112860?v=4"/>
-        <p>Loueur</p>
+        <p>Prêteur</p>
         <%=@booking.item.user.name %>
         <p class="text-secondary"><strong>Informations vérifiées</strong> <i class="fa-solid fa-check"></i></p>
         <p><strong>Membre depuis :</strong><%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
@@ -26,9 +26,9 @@
         <p><strong>Adresse:</strong><%=@booking.item.user.address%></p>
       </div>
 
-      <div class="sticky-top py-4" >
+      <div class="" >
       <img class="avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/159618368?v=4" />
-        <p>utilisateur</p>
+        <p>Emprunteur</p>
         <%=  @booking.user.email %></p>
         <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
         <p><strong>Email</strong> <%=@booking.item.user.email%></p>
@@ -43,6 +43,8 @@
     <div class="mb-3">
     <p><strong>Description du produit :</strong> <%=@booking.item.description %> </p>
    </div>
+
+   <%= link_to "Retour", bookings_path %>
 
 
 
