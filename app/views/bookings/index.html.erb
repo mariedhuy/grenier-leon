@@ -7,7 +7,7 @@
           <div class="card-request-infos">
             <h2><%= booking.item.name %></h2>
             <p>du <%= booking.start_date %> au <%= booking.end_date %></p>
-            <p>objet appartenant à <%= booking.item.user.email %></p>
+            <p>objet appartenant à <%= booking.item.user.name %></p>
             <p class="badge rounded-pill bg-success"><%= booking.status %></p>
             <% if booking.status == "confirmed" %>
               <p class="badge rounded-pill bg-success"><%= link_to "Voir la réservation", booking_path(booking) %></p>

@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-8">
-    <h1 class="mb-4">Pour votre votre réservation <%=@booking.item.name %></h1>
+    <h1 class="mb-4"><%=@booking.item.name %></h1>
       <div class="mb-3">
         <h4>Votre réservation</h4>
         <div class="d-flex align-items-center">
@@ -16,33 +16,29 @@
 
     <div class="col-md-4 bg-white rounded">
       <div class="" >
-      <img class="avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/155112860?v=4"/>
-        <p>Prêteur</p>
-        <%=@booking.item.user.name %>
+      <h3>Prêteur</h3>
+      <%= image_tag @booking.item.user.avatar, class: "avatar" %>  <%= @booking.item.user.name %>
         <p class="text-secondary"><strong>Informations vérifiées</strong> <i class="fa-solid fa-check"></i></p>
-        <p><strong>Membre depuis :</strong><%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
-        <p><strong>Email:</strong> <%=@booking.item.user.email%></p>
-        <p><strong>Téléphone:</strong><%=@booking.item.user.phone%></p>
-        <p><strong>Adresse:</strong><%=@booking.item.user.address%></p>
+        <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
+        <p><strong>Email</strong> <%=@booking.item.user.email%></p>
+        <p><strong>Téléphone</strong> <%=@booking.item.user.phone%></p>
+        <p><strong>Adresse </strong> <%=@booking.item.user.address%></p>
       </div>
 
       <div class="" >
-      <img class="avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/159618368?v=4" />
-        <p>Emprunteur</p>
-        <%=  @booking.user.email %></p>
+      <h3>Emprunteur</h3>
+      <%= image_tag @booking.user.avatar, class: "avatar" %> <%= @booking.user.name %></p>
         <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
-        <p><strong>Email</strong> <%=@booking.item.user.email%></p>
-        <p><strong>Téléphone</strong><%=@booking.item.user.phone%></p>
+        <p><strong>Email </strong> <%=@booking.item.user.email%></p>
+        <p><strong>Téléphone</strong> <%=@booking.item.user.phone%></p>
       </div>
     </div>
 
     <div class="mb-3">
     <p><strong>Catégorie du produit :</strong> <%=@booking.item.category %></p>
-   </div>
-
-    <div class="mb-3">
     <p><strong>Description du produit :</strong> <%=@booking.item.description %> </p>
    </div>
+
 
    <%= link_to "Retour", bookings_path %>
 
