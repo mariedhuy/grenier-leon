@@ -1,4 +1,4 @@
-puts "Clean"
+puts "clean"
 
 Item.destroy_all
 User.destroy_all
