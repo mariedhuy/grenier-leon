@@ -34,6 +34,7 @@
             <h2><%= request.item.name %></h2>
             <p>du <%= request.start_date %> au <%= request.end_date %></p>
             <p>demande faite par <%= request.user.email %></p>
+            <p class="badge rounded-pill bg-success"><%= link_to "Voir la réservation", booking_path(request) %></p>
           </div>
         </div>
       <% end %>
