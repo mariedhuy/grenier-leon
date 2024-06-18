@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Mes demandes d'emprunt</h1>
+  <div class="cards">
+    <% @bookings.each do |booking| %>
+      <div class="card-request">
+        <%= image_tag(booking.item.picture) %>
+          <div class="card-request-infos">
+            <h2><%= booking.item.name %></h2>
+            <p>du <%= booking.start_date %> au <%= booking.end_date %></p>
+            <p>objet appartenant à <%= booking.item.user.email %></p>
+            <p class="badge rounded-pill bg-success"><%= booking.status %></p>
+          </div>
+    </div>
+      <% end %>
+  </div>
+</div>

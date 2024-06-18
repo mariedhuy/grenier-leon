@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <h1>Le Grenier</h1>
       <h3>de Léon</h3>
     <% end %>
@@ -16,10 +16,16 @@
             <%= link_to "Recherche un objet", items_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Mes réservations", requests_path, class: "nav-link" %>
+            <%= link_to "Mes objets", my_items_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Mes prêts", requests_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Mes emprunts", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Publier une offre", "#", class: "nav-link" %>
+            <%= link_to "Ajouter un objet", new_item_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
