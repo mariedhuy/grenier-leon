@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row">
     <div class="col-md-8">
     <h1 class="mb-4"><%=@booking.item.name %></h1>
@@ -10,7 +10,7 @@
       </div>
 
       <div class="mb-3">
-        <img src="<%= @booking.item.picture%> "class="img-fluid rounded" style="max-width:600px;">
+        <img src="<%= @booking.item.picture%> "class="img-show" style="max-width:600px;">
       </div>
     </div>
 
@@ -40,11 +40,6 @@
     <p><strong>Description du produit :</strong> <%=@booking.item.description %> </p>
    </div>
 
-
-   <%= link_to "Retour", bookings_path %>
-
-
-
-
+  <%= link_to "Retour", :back %>
   </div>
 </div>

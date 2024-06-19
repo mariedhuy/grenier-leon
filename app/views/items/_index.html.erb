@@ -1,14 +1,15 @@
-<div class="container">
+<div class="container mt-3">
   <h1>Tous les objets disponibles</h1>
+  <br>
   <div class="row">
       <div class="cards-items">
         <% @items.each do |item| %>
           <%= link_to item_path(item) do %>
             <div class="card-item">
               <%= image_tag(item.picture) %>
+              <div class="tag"><%= item.category %></div>
               <div class="card-item-infos">
                 <h2><%= item.name %></h2>
-                <div class="tag"><%= item.category %></div>
               </div>
             </div>
           <% end %>
