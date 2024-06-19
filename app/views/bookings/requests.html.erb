@@ -12,11 +12,11 @@
           </div>
           <%= link_to "Je valide", booking_path(request),
                     data: { turbo_method: :patch, turbo_confirm: "Vous validez la réservation !" },
-                    class: "btn btn-green"
+                    class: "btn btn-blue"
                 %>
           <%= link_to "Je refuse", booking_path(request),
                     data: { turbo_method: :delete, turbo_confirm: "Confirmez votre refus" },
-                    class: "btn btn-red"
+                    class: "btn btn-orange"
                 %>
         </div>
       <% end %>
@@ -33,7 +33,7 @@
             <h2><%= request.item.name %></h2>
             <p>du <%= request.start_date %> au <%= request.end_date %></p>
             <p>demande faite par <%= request.user.name %></p>
-            <p class="badge rounded-pill bg-success"><%= link_to "Voir la réservation", booking_path(request) %></p>
+            <%= link_to "Voir la réservation", booking_path(request), class:"btn btn-blue" %>
           </div>
         </div>
       <% end %>

@@ -3,7 +3,7 @@
     <div class="col-md-8">
     <h1 class="mb-4"><%=@booking.item.name %></h1>
       <div class="mb-3">
-        <h4>Votre réservation</h4>
+        <h2>Votre réservation</h2>
         <div class="d-flex align-items-center">
           <p class="me-2"><strong> <%= @booking.start_date.strftime("%a. %d %b") %></strong> <i class="fa-solid fa-arrow-right"></i> <strong> <%= @booking.end_date.strftime("%a. %d %b") %></strong> </p>
         </div>
@@ -16,8 +16,8 @@
 
     <div class="col-md-4 bg-white rounded">
       <div class="" >
-      <h3>Prêteur</h3>
-      <%= image_tag @booking.item.user.avatar, class: "avatar" %>  <%= @booking.item.user.name %>
+      <h1>Prêteur</h1>
+      <h2><%= image_tag @booking.item.user.avatar, class: "avatar" %> <%= @booking.item.user.name %></h2>
         <p class="text-secondary"><strong>Informations vérifiées</strong> <i class="fa-solid fa-check"></i></p>
         <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
         <p><strong>Email</strong> <%=@booking.item.user.email%></p>
@@ -26,11 +26,12 @@
       </div>
 
       <div class="" >
-      <h3>Emprunteur</h3>
-      <%= image_tag @booking.user.avatar, class: "avatar" %> <%= @booking.user.name %></p>
+      <h1>Emprunteur</h1>
+      <h2><%= image_tag @booking.user.avatar, class: "avatar" %> <%= @booking.user.name %></h2>
         <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
-        <p><strong>Email </strong> <%=@booking.item.user.email%></p>
-        <p><strong>Téléphone</strong> <%=@booking.item.user.phone%></p>
+        <p><strong>Email </strong> <%=@booking.user.email%></p>
+        <p><strong>Téléphone</strong> <%=@booking.user.phone%></p>
+        <p><strong>Adresse </strong> <%=@booking.user.address%></p>
       </div>
     </div>
 
