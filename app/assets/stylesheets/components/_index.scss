@@ -5,16 +5,35 @@
 @import "navbar";
 @import "cards";
 @import "button";
-@import "card_item";
+@import "images";
 @import "button";
 @import "banner";
 
-a:link {
+a {
   text-decoration: none;
+  color: #219ebc;
 }
 
-button > a {
-  color: white !important
+a:hover {
+  color: #f18940
+}
+
+h1 {
+  color: #219ebc;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h2 {
+  color: #f18940;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+h4 {
+  font-style: italic;
+  color: #7f7f7f;
+  font-size: 12px;
 }
 
 // body {

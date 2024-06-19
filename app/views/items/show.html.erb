@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-8">
-      <img src="<%= @item.picture %>" class="img-details" alt="<%= @item.name %>">
+      <img src="<%= @item.picture %>" class="img-show" alt="<%= @item.name %>">
     </div>
-    <div class="col-4 card-details">
-      <h3><%= @item.category.upcase %></h3>
-      <h2><%= @item.name.capitalize %></h2>
-      <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+    <div class="col-4">
+      <h2><%= @item.category.upcase %></h2>
+      <h1><%= @item.name.capitalize %></h1>
+      <h4>Appartient à <%= @item.user.name %></h4>
       <p><%= @item.description %></p>
       <%= simple_form_for [@item, @booking] do |f| %>
         <%= f.input :status, as: :hidden, input_html: {value:"pending"} %>
         <%= f.input :start_date, as: :date, label: "Début" %>
         <%= f.input :end_date, as: :date, label: "Fin" %>
-        <%= f.submit "Envoyer ma demande" %>
+        <%= f.submit "Envoyer ma demande", class:"btn btn-blue" %>
       <% end %>
     </div>
     <%= link_to "Retour", items_path %>
