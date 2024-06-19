@@ -9,7 +9,7 @@
 // items
 .cards-items {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -30,21 +30,21 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards-items {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards-items {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards-items {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -59,6 +59,9 @@
   display: flex;
   align-items: center;
 }
+
+
+
 
 .card-request img {
   height: 100%;
@@ -86,32 +89,74 @@
 
 
 // item
+
+
 .card-item {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  display: flex;
+  height: 250px;
   align-items: center;
+  margin-bottom: 8px;
 }
+
+.card-item:hover {
+  height: 250px;
+  align-items: center;
+  margin-bottom: 8px;
+
+ h2 {
+  color: #f18940;
+ }
+
+ img {
+  opacity: 1;
+ }
+
+}
+
+
 .card-item img {
-  height: 100%;
-  width: 120px;
+  border-radius:15px;
+  height: 200px;
+  width: 100%;
   object-fit: cover;
+  opacity: 0.8;
 }
 
 .card-item h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  text-decoration: none;
+  color: black
 }
+
 .card-item p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 8px;
   margin-top: 8px;
+  color: #f18940
 }
 
 .card-item .card-item-infos {
-  padding: 16px;
+  // padding:0 16px;
+  margin:0;
+  justify-content: center;
+  padding: 8px;
+}
+
+
+.tag {
+  border-radius:5px;
+  // background-color: #f18a409d ;
+  // border: none;
+  border: 1px solid #f18a409d;
+  // color: white;
+  color: #f18a409d;
+  padding: 2px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin-top: 5px;
 }
