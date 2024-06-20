@@ -3,7 +3,6 @@
   border-radius: 4px;
   font-weight: lighter;
   font-size: 16px;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
   margin: 5px;
 }
@@ -11,7 +10,6 @@
 .btn-black {
   color: white;
   background-color: black;
-  opacity: 1;
   transition: none;
   border: 1px solid black;
 }
@@ -19,7 +17,6 @@
 .btn-black:hover {
   color: #f18940;
   background-color: black;
-  opacity: 1;
   transition: none;
 }
 
@@ -31,7 +28,6 @@
 .btn-orange:hover {
   color: white;
   background-color: #f18940;
-  opacity: 1;
 }
 
 .btn-blue {
@@ -42,5 +38,4 @@
 .btn-blue:hover {
   color: white;
   background-color: #219ebc;
-  opacity: 1;
 }
