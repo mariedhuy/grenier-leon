@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -23,6 +23,23 @@ class ItemsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def edit
+  end
+
+  def update
+    if @item.update(items_params)
+      redirect_to @item
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to my_items_path, status: :see_other
+  end
+
 
   def my_items
     @items = Item.where(user: current_user)
