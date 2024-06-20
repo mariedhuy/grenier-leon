@@ -1,7 +1,11 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-8">
-      <img src="<%= @item.picture %>" class="img-show" alt="<%= @item.name %>">
+      <% if @item.photo.key %>
+        <%= cl_image_tag @item.photo.key, class:"img-show" %>
+      <% else %>
+        <img src="<%= @item.picture %>" class="img-show" alt="<%= @item.name %>">
+      <% end %>
     </div>
     <div class="col-4">
       <h2><%= @item.category.upcase %></h2>
@@ -15,6 +19,6 @@
         <%= f.submit "Envoyer ma demande", class:"btn btn-blue" %>
       <% end %>
     </div>
-    <%= link_to "Retour", items_path %>
+    <%= link_to "Retour", :back %>
   </div>
 </div>

@@ -4,7 +4,11 @@
     <% @bookings.each do |booking| %>
       <% if booking.status == "confirmed" %>
         <div class="card-request">
-          <%= image_tag(booking.item.picture) %>
+          <% if booking.item.photo.key %>
+            <%= cl_image_tag booking.item.photo.key %>
+          <% else %>
+            <%= image_tag(booking.item.picture) %>
+          <% end %>
           <div class="card-request-infos">
             <h2><i class="fa-solid fa-circle-check"></i> <%= booking.item.name %></h2>
             <p>du <%= booking.start_date %> au <%= booking.end_date %></p>
@@ -20,7 +24,11 @@
     <% @bookings.each do |booking| %>
       <% if booking.status == "pending" %>
         <div class="card-request">
-          <%= image_tag(booking.item.picture) %>
+          <% if booking.item.photo.key %>
+            <%= cl_image_tag booking.item.photo.key %>
+          <% else %>
+            <%= image_tag(booking.item.picture) %>
+          <% end %>
           <div class="card-request-infos">
             <h2><i class="fa-solid fa-hourglass-start"></i> <%= booking.item.name %></h2>
             <p>du <%= booking.start_date %> au <%= booking.end_date %></p>

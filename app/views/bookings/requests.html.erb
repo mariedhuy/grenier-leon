@@ -4,7 +4,11 @@
     <% @requests.each do |request| %>
       <% if request.status == "pending" %>
         <div class="card-request">
-          <%= image_tag(request.item.picture) %>
+          <% if request.item.photo.key %>
+            <%= cl_image_tag request.item.photo.key %>
+          <% else %>
+            <%= image_tag(request.item.picture) %>
+          <% end %>
           <div class="card-request-infos">
             <h2><%= request.item.name %></h2>
             <p>du <%= request.start_date %> au <%= request.end_date %></p>
@@ -28,7 +32,11 @@
     <% @requests.each do |request| %>
       <% if request.status == "confirmed" %>
         <div class="card-request">
-          <%= image_tag(request.item.picture) %>
+          <% if request.item.photo.key %>
+            <%= cl_image_tag request.item.photo.key %>
+          <% else %>
+            <%= image_tag(request.item.picture) %>
+          <% end %>
           <div class="card-request-infos">
             <h2><%= request.item.name %></h2>
             <p>du <%= request.start_date %> au <%= request.end_date %></p>
@@ -39,6 +47,4 @@
       <% end %>
     <% end %>
   </div>
-
-
 </div>

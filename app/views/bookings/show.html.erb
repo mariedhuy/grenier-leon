@@ -10,7 +10,11 @@
       </div>
 
       <div class="mb-3">
-        <img src="<%= @booking.item.picture%> "class="img-show" style="max-width:600px;">
+        <% if @booking.item.photo.key %>
+          <%= cl_image_tag @booking.item.photo.key, class: "img-show" %>
+        <% else %>
+          <%= image_tag(@booking.item.picture, class: "img-show") %>
+        <% end %>
       </div>
     </div>
 
