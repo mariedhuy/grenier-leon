@@ -17,7 +17,12 @@
       <p><%= @item.description %></p>
       <br><br>
       <%= link_to edit_item_path(@item) do %><i class="fa-solid fa-pen"></i> Modifier <% end %><br>
+
       <%= link_to item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Je confirme la suppression"} do %><i class="fa-solid fa-trash"></i> Supprimer l'objet <% end %>
+
+<%# à modifier : icone & css %>
+      <%= button_to "Supprimer l'objet", item_path(@item), method: :delete, form_class: 'delete-alertbox'%>
+
     <% else %>
 <%# View user %>
       <h4>Appartient à <%= @item.user.name %></h4>

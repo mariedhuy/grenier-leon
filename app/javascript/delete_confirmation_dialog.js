@@ -3,10 +3,10 @@ window.addEventListener(('turbo:load'), () => {
     if (event.target && event.target.className === 'delete-alertbox') {
       event.preventDefault()
       Swal.fire({
-          title: 'Vous refusez la demande de réservation ?',
+          title: 'Êtes-vous sûr ?',
           icon: 'error',
           showCancelButton: true,
-          cancelButtonText: "Annuler",
+          cancelButtonText: "Non",
           confirmButtonColor: '#219ebc',
           cancelButtonColor: '#f18940',
           confirmButtonText: 'Oui'
