@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   validates :name, :category, presence: true
 
   has_one_attached :photo
+
+  CATEGORIES = ["Cuisine", "Outils", "Loisirs"]
 end
