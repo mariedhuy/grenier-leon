@@ -10,6 +10,11 @@
       <i class="fas fa-search"></i> Search
       </button>
     </div>
+
+    <div>
+      <%= select_tag([:category], options_for_select([[@categories[1], "Maison"]])) %>
+    </div>
+
     <% end %>
   </div>
 </div>

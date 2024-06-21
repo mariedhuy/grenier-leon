@@ -2,16 +2,16 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
   skip_before_action :authenticate_user!, only: %i[index show]
 
-  categories = "%w[cuisine maison outils]"
 
   def index
     if params[:query].present?
       @items = Item.where("name ILIKE?", "%#{params[:query]}%")
-    # elsif params[:filter].present?
-    #   @items = Item.where("name ILIKE?", "%#{params[:filter]}%")
-    else
-      @items = Item.all
-    end
+      # elsif params[:filter].present?
+      #   @items = Item.where("name ILIKE?", "%#{params[:filter]}%")
+      else
+        @items = Item.all
+        end
+      @categories = %w[Cuisine Maison Outils]
   end
 
   def show
