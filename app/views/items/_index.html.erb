@@ -7,11 +7,13 @@
           <%= link_to item_path(item) do %>
             <div class="card-item">
               <div class="tag"><%= item.category %></div>
+
               <% if item.photo.key %>
                 <%= cl_image_tag item.photo.key %>
               <% else %>
                 <img src="<%= item.picture %>" alt="<%= item.name %>">
               <% end %>
+              
               <div class="card-item-infos">
                 <h2><%= item.name %></h2>
               </div>

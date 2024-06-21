@@ -1,5 +1,11 @@
 <div class="container mt-3">
   <h1>Mes objets</h1>
+
+  <% if @items == [] %>
+
+<p>Vous n'avez pas encore ajouté d'objets.</p>
+
+  <% else %>
   <div class="cards-items">
     <% @items.each do |item| %>
       <%= link_to item_path(item) do %>
@@ -16,4 +22,7 @@
       <% end %>
     <% end %>
   </div>
+
+  <% end %>
+
 </div>
