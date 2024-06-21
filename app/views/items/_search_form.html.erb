@@ -1,0 +1,15 @@
+
+<%= form_with url: items_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Quel objet souhaitez-vous emprunter ?"
+    %>
+      <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+    <% end %>
+  </div>
+</div>
