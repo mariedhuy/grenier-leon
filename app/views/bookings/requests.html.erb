@@ -16,7 +16,7 @@
           </div>
           <%= button_to "Je valide", booking_path(request),
                     method: :patch,
-                    onclick: "sweetAlertBtn()",
+                    form_class: 'update-alertbox',
                     class: "btn btn-blue"
           %>
           <%= button_to "Je refuse", booking_path(request),
@@ -51,18 +51,3 @@
     <% end %>
   </div>
 </div>
-
-<script>
-  function sweetAlertBtn() {
-    event.preventDefault()
-    Swal.fire({
-      icon: 'success',
-      title: 'Confirmez-vous la réservation ?',
-      showCancelButton: true,
-      cancelButtonText: "Non",
-      confirmButtonColor: '#219ebc',
-      cancelButtonColor: '#f18940',
-      confirmButtonText: 'Oui'
-    })
-  }
-</script>
