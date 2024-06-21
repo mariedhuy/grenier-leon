@@ -1,20 +1,24 @@
+<div class="row mt-4 mb-4">
+  <%= form_with url: items_path, method: :get do |f| %>
+      <div class="mt-2 mb-2">
+        <% Item::CATEGORIES.each do |category| %>
+          <%= f.label :filter, category%>
+          <%= f.radio_button :filter, category %>
+        <% end %>
+      </div>
+    <div class="search-form-control form-group mb-3">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Je souhaite emprunter..."
+      %>
+        <button name="button" type="submit" class="btn btn-blue">
+        <i class="fas fa-search"></i>Rechercher
+        </button>
+      </div>
 
-<%= form_with url: items_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Quel objet souhaitez-vous emprunter ?"
-    %>
-      <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-      </button>
+
+      <% end %>
     </div>
-
-    <div>
-      <%= select_tag([:category], options_for_select([[@categories[1], "Maison"]])) %>
-    </div>
-
-    <% end %>
   </div>
 </div>

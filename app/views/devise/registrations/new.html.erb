@@ -1,5 +1,5 @@
-<div class="container">
-  <h2>Sign up</h2>
+<div class="container mt-3">
+  <h2>M'inscire</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -11,27 +11,33 @@
                   input_html: { autocomplete: "email" }%>
       <%= f.input :name,
                   required: false,
-                  input_html: { autocomplete: "name" }%>
+                  input_html: { autocomplete: "name" },
+                  label: "Nom" %>
       <%= f.input :address,
                   required: false,
-                  input_html: { autocomplete: "address" }%>
+                  input_html: { autocomplete: "address" },
+                  label: "Adresse" %>
       <%= f.input :phone,
                   required: false,
-                  input_html: { autocomplete: "phone" }%>
+                  input_html: { autocomplete: "phone" },
+                  label: "Téléphone" %>
       <%= f.input :avatar,
                   required: false,
-                  input_html: { autocomplete: "avatar" }%>
+                  input_html: { autocomplete: "avatar" },
+                  label: "Photo de profil" %>
       <%= f.input :password,
                   required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" },
+                  label: "Mot de passe"  %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password" },
+                  label: "Confirmez votre mot de passe"  %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Je m'inscris", class:"btn btn-blue" %>
     </div>
   <% end %>
 

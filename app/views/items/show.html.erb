@@ -1,20 +1,41 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-8">
-      <img src="<%= @item.picture %>" class="img-details" alt="<%= @item.name %>">
+      <% if @item.photo.key %>
+        <%= cl_image_tag @item.photo.key, class:"img-show" %>
+      <% else %>
+        <img src="<%= @item.picture %>" class="img-show" alt="<%= @item.name %>">
+      <% end %>
     </div>
-    <div class="col-4 card-details">
-      <h3><%= @item.category.upcase %></h3>
-      <h2><%= @item.name.capitalize %></h2>
-      <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+    <div class="col-4">
+      <!-- <h2><%= @item.category.upcase %></h2> -->
+      <div class="tag"><%= @item.category.upcase %></div>
+      <h1><%= @item.name.capitalize %></h1>
+
+<%# View owner %>
+    <% if current_user == @item.user %>
+      <p><%= @item.description %></p>
+      <br><br>
+      <%= link_to edit_item_path(@item) do %><i class="fa-solid fa-pen"></i> Modifier <% end %><br>
+
+      <%= link_to item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Je confirme la suppression"} do %><i class="fa-solid fa-trash"></i> Supprimer l'objet <% end %>
+
+<%# à modifier : icone & css %>
+      <%= button_to "Supprimer l'objet", item_path(@item), method: :delete, form_class: 'delete-alertbox'%>
+
+    <% else %>
+<%# View user %>
+      <h4>Appartient à <%= @item.user.name %></h4>
       <p><%= @item.description %></p>
       <%= simple_form_for [@item, @booking] do |f| %>
         <%= f.input :status, as: :hidden, input_html: {value:"pending"} %>
         <%= f.input :start_date, as: :date, label: "Début" %>
         <%= f.input :end_date, as: :date, label: "Fin" %>
-        <%= f.submit "Envoyer ma demande" %>
+        <%= f.submit "Envoyer ma demande", class:"btn btn-blue" %>
       <% end %>
+    <% end %>
+
     </div>
-    <%= link_to "Retour", items_path %>
+    <%= link_to "Retour", :back %>
   </div>
 </div>
