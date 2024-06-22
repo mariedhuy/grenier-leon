@@ -25,9 +25,9 @@
           <h2><%= image_tag @booking.item.user.avatar, class: "avatar" %> <%= @booking.item.user.name %></h2>
           <p class="text-secondary"><strong>Informations vérifiées</strong> <i class="fa-solid fa-check"></i></p>
           <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
-          <p><strong>Email</strong> <%=@booking.item.user.email%></p>
-          <p><strong>Téléphone</strong> <%=@booking.item.user.phone%></p>
-          <p><strong>Adresse </strong> <%=@booking.item.user.address%></p>
+          <p><strong><i class="fa-solid fa-envelope" style="color: #f18940;"></i> :  </strong> <%=@booking.item.user.email%></p>
+          <p><strong><i class="fa-solid fa-phone" style="color: #f18940;"></i> : </strong> <%=@booking.item.user.phone%></p>
+          <p><strong><i class="fa-solid fa-address-book" style="color: #f18940;"></i> :  </strong> <%=@booking.item.user.address%></p>
         </div>
       <% end %>
 
@@ -38,7 +38,6 @@
           <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
           <p><strong><i class="fa-solid fa-envelope" style="color: #f18940;"></i> :  </strong> <%=@booking.user.email%></p>
           <p><strong><i class="fa-solid fa-phone" style="color: #f18940;"></i> : </strong> <%=@booking.user.phone%></p>
-          <p><strong><i class="fa-solid fa-address-book" style="color: #f18940;"></i> :  </strong> <%=@booking.user.address%></p>
         </div>
       <% end %>
     </div>
