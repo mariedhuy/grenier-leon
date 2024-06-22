@@ -12,13 +12,93 @@
       <h1><%= @item.name.capitalize %></h1>
       <h4>Appartient à <%= @item.user.name %></h4>
       <p><%= @item.description %></p>
+
       <%= simple_form_for [@item, @booking] do |f| %>
-        <%= f.input :status, as: :hidden, input_html: {value:"pending"} %>
-        <%= f.input :start_date, as: :date, label: "Début" %>
-        <%= f.input :end_date, as: :date, label: "Fin" %>
-        <%= f.submit "Envoyer ma demande", class:"btn btn-blue" %>
+        <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
+
+
+        <%# Form made with Date Range Picker = same as Flatpickr but w/o bugs. %>
+        <div class="input-group">
+          <%# Refers to documentation => date_range id + date_range name to use in the controller_date_picker %>
+          <input type="text" id="date_range" name="date_range" class="js-daterangepicker form-control daterangepicker-custom-input">
+
+          <%# event listener onClick to get the user input %>
+          <div class="input-group-append input-group-text" onclick="$('#date_range').data('daterangepicker').toggle();">
+            <i class="bi-chevron-down"></i>
+          </div>
+        </div>
+
+        <%# Initialize start_date and end_date from @bookings %>
+        <input type="hidden" id="start_date" name="start_date">
+        <input type="hidden" id="end_date" name="end_date">
+
+      <%= f.submit "Envoyer ma demande", class: "btn btn-blue" %>
       <% end %>
-    </div>
-    <%= link_to "Retour", :back %>
-  </div>
-</div>
+      <%= link_to "Retour", :back %>
+
+
+<style>
+  .ranges {
+    opacity: 0;
+  }
+  .daterangepicker td.in-range {
+    background-color: #F1B60D;
+    border-color: transparent;
+    color: #000;
+    border-radius: 0;
+    }
+
+  .daterangepicker td.end-date{
+    color: white;
+  }
+
+  .daterangepicker .calendar td.active,
+  .daterangepicker .calendar td.active:hover {
+    background-color: #F1B60D; /* Selected date background color */
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  .btn-blue {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: white;
+  }
+
+  .btn-blue:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+
+  .form-control {
+    border-radius: 0.25rem;
+  }
+
+  .input-group-append {
+    cursor: pointer;
+  }
+</style>
+
+<%# Script refers to Date Range Picker %>
+<%# 1. Fetch the input and parameters %>
+<%# 2. Initialize the Date Range Picker %>
+<%# 3. Set the start_date and end_date values %>
+<%# 4. Submit the form %>
+
+<script type="text/javascript">
+  $(function() {
+    const today = moment().startOf('day');
+    $('input[name="date_range"]').daterangepicker({
+      autoApply: true,
+      opens: 'left',
+      minDate: today
+    }, function(start, end, label) {
+      console.log("A new date range selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+      // Optionally, set these values in hidden fields to submit with the form
+      $('#start_date').val(start.format('YYYY-MM-DD'));
+      $('#end_date').val(end.format('YYYY-MM-DD'));
+    });
+  });
+</script>
