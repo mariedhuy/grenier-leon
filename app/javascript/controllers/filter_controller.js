@@ -6,7 +6,7 @@ export default class extends Controller {
 
   showResults(event) {
     event.preventDefault();
-    
+
     const url = `${this.formTarget.action}?query=${this.queryTarget.value}`
     console.log(url)
 
@@ -17,18 +17,18 @@ export default class extends Controller {
       })
     }
 
-    filterResults(event) {
-      event.preventDefault();
+  filterResults(event) {
+    event.preventDefault();
 
-      const category = event.target.value
-      const url = `${this.formTarget.action}?filter=${category}`
-      console.log(url)
-      console.log(category)
+    const category = event.target.value
+    const url = `${this.formTarget.action}?filter=${category}`
+    console.log(url)
+    console.log(category)
 
-      fetch(url, {headers: { "Accept": "text/plain" }})
-        .then(response => response.text())
-        .then((data) => {
-          this.itemsTarget.outerHTML = data
-        })
-    }
+    fetch(url, {headers: { "Accept": "text/plain" }})
+      .then(response => response.text())
+      .then((data) => {
+        this.itemsTarget.outerHTML = data
+      })
+  }
 }
