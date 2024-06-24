@@ -1,7 +1,12 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-8">
-    <h1 class="mb-4"><%=@booking.item.name %></h1>
+      <div class="tag">
+        <%=@booking.item.category %>
+      </div>
+      <h1 class="mb-4">
+        <%=@booking.item.name %>
+      </h1>
       <div class="mb-3">
         <h2>Votre réservation</h2>
         <div class="d-flex align-items-center">
@@ -20,19 +25,23 @@
 
     <div class="col-md-4">
       <% if current_user == @booking.user %>
-        <div class="" >
+        <div>
           <h1>Prêteur</h1>
           <h2><%= image_tag @booking.item.user.avatar, class: "avatar" %> <%= @booking.item.user.name %></h2>
-          <p class="text-secondary"><strong>Informations vérifiées</strong> <i class="fa-solid fa-check"></i></p>
           <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
           <p><strong><i class="fa-solid fa-envelope" style="color: #f18940;"></i>  </strong> <%=@booking.item.user.email%></p>
           <p><strong><i class="fa-solid fa-phone" style="color: #f18940;"></i> </strong> <%=@booking.item.user.phone%></p>
-          <p><strong><i class="fa-solid fa-address-book" style="color: #f18940;"></i>  </strong> <%=@booking.item.user.address%></p>
+          <p><strong><i class="fa-solid fa-location-dot" style="color: #f18940;"></i>  </strong> <%=@booking.item.user.address%></p>
+        </div>
+        <div class="map-booking"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       <% end %>
 
       <% if current_user == @booking.item.user %>
-        <div class="" >
+        <div>
           <h1>Emprunteur</h1>
           <h2><%= image_tag @booking.user.avatar, class: "avatar" %> <%= @booking.user.name %></h2>
           <p><strong>Membre depuis</strong> <%=@booking.item.user.created_at.strftime("%b. %Y")%></p>
@@ -41,12 +50,11 @@
         </div>
       <% end %>
     </div>
-
-    <div class="mb-3">
-    <p><strong>Catégorie du produit :</strong> <%=@booking.item.category %></p>
-    <p><strong>Description du produit :</strong> <%=@booking.item.description %> </p>
-   </div>
-
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <p><%=@booking.item.description %> </p>
+    </div>
   <%= link_to "Retour", :back %>
   </div>
 </div>
