@@ -36,7 +36,6 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(status: "confirmed")
-    @booking.update(booking_params)
     redirect_to requests_path, notice: "Votre #{@booking.item.name} est réservé(e) du #{@booking.start_date} au #{@booking.end_date}"
   end
 

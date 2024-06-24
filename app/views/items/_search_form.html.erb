@@ -1,0 +1,29 @@
+<div class="row mt-4 mb-4">
+    <%= form_with url: items_path, html: { data:
+                                    {filter_target: "form",
+                                    action: "keyup->filter#showResults"}},
+                                    method: :get do |f| %>
+        <div class="mt-2 mb-2">
+          <% Item::CATEGORIES.each do |category| %>
+            <%= f.label :filter, category%>
+            <%= f.radio_button :filter, category, data: {
+                                    filter_target: "category",
+                                    action: "change->filter#filterResults"
+            } %>
+            <% end %>
+        </div>
+      <div class="search-form-control form-group mb-3">
+        <%= text_field_tag :query,
+        params[:query], data: {
+        filter_target: "query"},
+        class: "form-control",
+        placeholder: "Je souhaite emprunter..."
+        %>
+          <button name="button" type="submit" class="btn btn-blue">
+          <i class="fas fa-search"></i>Rechercher
+          </button>
+        </div>
+        <% end %>
+      </div>
+    </div>
+</div>

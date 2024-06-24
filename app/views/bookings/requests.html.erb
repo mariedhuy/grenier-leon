@@ -14,14 +14,17 @@
             <p>du <%= request.start_date %> au <%= request.end_date %></p>
             <p>demande faite par <%= request.user.name %></p>
           </div>
-          <%= link_to "Je valide", booking_path(request),
-                    data: { turbo_method: :patch, turbo_confirm: "Vous validez la réservation !" },
+          <%= button_to "Je valide", booking_path(request),
+                    method: :patch,
+                    form_class: 'update-alertbox',
                     class: "btn btn-blue"
-                %>
-          <%= link_to "Je refuse", booking_path(request),
-                    data: { turbo_method: :delete, turbo_confirm: "Confirmez votre refus" },
+          %>
+          <%= button_to "Je refuse", booking_path(request),
+                    method: :delete,
+                    form_class: 'delete-alertbox',
                     class: "btn btn-orange"
-                %>
+          %>
+
         </div>
       <% end %>
     <% end %>
