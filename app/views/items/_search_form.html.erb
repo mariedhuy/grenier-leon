@@ -6,8 +6,11 @@
         <div class="mt-2 mb-2">
           <% Item::CATEGORIES.each do |category| %>
             <%= f.label :filter, category%>
-            <%= f.radio_button :filter, category %>
-          <% end %>
+            <%= f.radio_button :filter, category, data: {
+                                    filter_target: "category",
+                                    action: "change->filter#filterResults"
+            } %>
+            <% end %>
         </div>
       <div class="search-form-control form-group mb-3">
         <%= text_field_tag :query,

@@ -3,20 +3,39 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @items = Item.all
+
     if params[:query].present?
       @items = Item.search_by_name_and_category("%#{params[:query]}%")
+
+      respond_to do |format|
+        format.html
+        format.text { render partial: "items/index",
+                      locals: { items: @items }, formats: [:html] }
+      end
+
+    # else
+    # @items = @items.where("name ILIKE?", "%#{params[:query]}%")
+    elsif params[:filter].present?
+    # @items = @items.where("category LIKE?", "#{params[:filter]}")
+    @items = Item.search_by_category("%#{params[:filter]}%")
+
+      respond_to do |format|
+        format.html
+        format.text { render partial: "items/index",
+                      locals: { items: @items }, formats: [:html] }
+      end
+
     else
       @items = Item.all
-      # @items = @items.where("name ILIKE?", "%#{params[:query]}%")
-    # elsif params[:filter].present?
-    #   @items = @items.where("category LIKE?", "#{params[:filter]}")
+
+      respond_to do |format|
+        format.html
+        format.text { render partial: "items/index",
+                      locals: { items: @items }, formats: [:html] }
+      end
     end
 
-    respond_to do |format|
-      format.html
-      format.text { render partial: "items/index",
-        locals: { items: @items }, formats: [:html] }
-    end
   end
 
   def show
