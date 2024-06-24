@@ -1,0 +1,30 @@
+  .ranges {
+    opacity: 0;
+  }
+  .daterangepicker td.in-range {
+    background-color: #f18940;
+    border-color: transparent;
+    color: #000;
+    border-radius: 0;
+    }
+
+  .daterangepicker td.end-date{
+    color: white;
+  }
+
+  .daterangepicker .calendar td.active,
+  .daterangepicker .calendar td.active:hover {
+    background-color: #f18940; /* Selected date background color */
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  .form-control {
+    border-radius: 0.25rem;
+  }
+
+  .input-group-append {
+    cursor: pointer;
+  }

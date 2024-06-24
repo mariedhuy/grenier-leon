@@ -1,17 +1,24 @@
-<div data-filter-target="items" class="cards-items">
-  <% @items.each do |item| %>
-    <%= link_to item_path(item) do %>
-      <div class="card-item">
-        <div class="tag"><%= item.category %></div>
-        <% if item.photo.key %>
-          <%= cl_image_tag item.photo.key %>
-        <% else %>
-          <img src="<%= item.picture %>" alt="<%= item.name %>">
-        <% end %>
-        <div class="card-item-infos">
-          <h2><%= item.name %></h2>
+<div data-filter-target="items" class="mb-3">
+  <div class="cards-items">
+    <% @items.each do |item| %>
+      <%= link_to item_path(item) do %>
+        <div class="card-item">
+          <div class="tag"><%= item.category %></div>
+          <% if item.photo.key %>
+            <%= cl_image_tag item.photo.key %>
+          <% else %>
+            <img src="<%= item.picture %>" alt="<%= item.name %>">
+          <% end %>
+          <div class="card-item-infos">
+            <h2><%= item.name %></h2>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+    <div style="width: 100%; height: 600px; border-radius: 15px"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
