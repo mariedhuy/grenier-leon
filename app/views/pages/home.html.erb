@@ -1,13 +1,43 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.openart.ai/uploads/image_1I9AsXnV_1718724931386_raw.jpg)">
   <div class="container">
-    <h1>Le Grenier de Léon</h1>
-    <p>Partage tes objets avec tes voisins !</p>
-    <%= link_to "Ajouter un objet", new_item_path, class:"btn btn-black" %>
+    <h1>Partage tes objets avec tes voisins !</h1>
+    <p>Pourquoi acheter un objet qu’on n’utilisera qu’une fois quand nos voisins peuvent nous le prêter ?</p>
     <%= link_to "Chercher un objet", items_path, class:"btn btn-black" %>
   </div>
 </div>
 
-<br><br>
-<%= render "items/index" %>
+<%# <div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="home-message">
+        <h1>Une plateforme pour partager nos objets entre voisins</h1>
+        <p>Pourquoi acheter un objet qu’on n’utilisera qu’une fois quand nos voisins peuvent nous le prêter ?</p>
+      </div>
+    </div>
+  </div>
+</div> %>
 
-  <script src="lib/index.js"></script>
+
+
+<div class="home-steps">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+          <h1>Je prête</h1>
+          <p>J’ajoute les objets que je propose de prêter</p>
+      </div>
+
+      <div class="col-6">
+        <%= image_tag("grenier-concept.png") %>
+      </div>
+
+      <div class="col-3">
+          <h1>J'emprunte</h1>
+          <p>Je recherche un objet parmi ceux disponibles autour de chez moi</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

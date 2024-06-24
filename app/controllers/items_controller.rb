@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @items = Item.all
+    # @items = Item.all
 
     if params[:query].present?
       @items = Item.search_by_name_and_category("%#{params[:query]}%")

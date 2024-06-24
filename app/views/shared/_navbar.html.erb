@@ -16,7 +16,7 @@
             <%= link_to "Rechercher un objet", items_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Ajouter un objet", new_item_path, class: "btn btn-navbar" %>
+            <%= link_to "Partager un objet", new_item_path, class: "btn btn-navbar" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,7 +35,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Accueil", root_path, class: "nav-link" %>
+            <%= link_to "Partager un objet", new_item_path, class: "btn btn-navbar" %>
           </li>
           <li class="nav-item">
             <%= link_to "Me connecter", new_user_session_path, class: "nav-link" %>
