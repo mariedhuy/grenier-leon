@@ -7,8 +7,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <!-- Include daterangepicker CSS -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link rel="stylesheet" href="../node_modules/daterangepicker/daterangepicker.css">
+    <!-- Include jQuery and moment.js (dependencies for daterangepicker) -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <%= javascript_include_tag "delete_confirmation_dialog" %>
 
+  <!-- Include daterangepicker JavaScript -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
   <%= javascript_importmap_tags %>
   <!--  Include Bootstrap Datepicker CSS
   <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css' %>
@@ -21,5 +29,5 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
-  </body>
+      </body>
 </html>
