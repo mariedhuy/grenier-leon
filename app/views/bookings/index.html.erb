@@ -1,41 +1,43 @@
 <div class="container mt-3">
-  <h1>Mes demandes d'emprunt validées</h1>
-  <div class="cards mb-3">
-    <% @bookings.each do |booking| %>
-      <% if booking.status == "confirmed" %>
-        <div class="card-request">
-          <% if booking.item.photo.key %>
-            <%= cl_image_tag booking.item.photo.key %>
-          <% else %>
-            <%= image_tag(booking.item.picture) %>
-          <% end %>
-          <div class="card-request-infos">
-            <h2><i class="fa-solid fa-circle-check"></i> <%= booking.item.name %></h2>
-            <p>du <%= booking.start_date %> au <%= booking.end_date %></p>
-            <p>objet appartenant à <%= booking.item.user.name %></p>
+    <h1>Mes demandes d'emprunt validées</h1>
+    <div class="cards mb-3">
+      <% @bookings.each do |booking| %>
+        <% if booking.status == "confirmed" %>
+          <div class="card-request">
+            <% if booking.item.photo.key %>
+              <%= cl_image_tag booking.item.photo.key %>
+            <% else %>
+              <%= image_tag(booking.item.picture) %>
+            <% end %>
+            <div class="card-request-infos">
+              <h2><i class="fa-solid fa-circle-check"></i> <%= booking.item.name %></h2>
+              <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date %> au <%= booking.end_date %></p>
+              <p>objet appartenant à <%= booking.item.user.name %></p>
+            </div>
             <%= link_to "Voir la réservation", booking_path(booking), class:"btn btn-blue" %>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <h1>Mes demandes d'emprunt en attente</h1>
-  <div class="cards">
-    <% @bookings.each do |booking| %>
-      <% if booking.status == "pending" %>
-        <div class="card-request">
-          <% if booking.item.photo.key %>
-            <%= cl_image_tag booking.item.photo.key %>
-          <% else %>
-            <%= image_tag(booking.item.picture) %>
-          <% end %>
-          <div class="card-request-infos">
-            <h2><i class="fa-solid fa-hourglass-start"></i> <%= booking.item.name %></h2>
-            <p>du <%= booking.start_date %> au <%= booking.end_date %></p>
-            <p>objet appartenant à <%= booking.item.user.name %></p>
+    </div>
+
+    <h1>Mes demandes d'emprunt en attente</h1>
+    <div class="cards">
+      <% @bookings.each do |booking| %>
+        <% if booking.status == "pending" %>
+          <div class="card-request">
+            <% if booking.item.photo.key %>
+              <%= cl_image_tag booking.item.photo.key %>
+            <% else %>
+              <%= image_tag(booking.item.picture) %>
+            <% end %>
+            <div class="card-request-infos">
+              <h2><i class="fa-solid fa-hourglass-start"></i> <%= booking.item.name %></h2>
+              <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date %> au <%= booking.end_date %></p>
+              <p>objet appartenant à <%= booking.item.user.name %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
