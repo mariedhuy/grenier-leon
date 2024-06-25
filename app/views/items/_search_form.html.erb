@@ -1,5 +1,6 @@
 <div class="row mt-4">
 
+<%# Search by city %>
   <div class="search-form-control form-group mb-3">
     <%= form_tag items_path, method: :get do %>
       <%= text_field_tag :location,
@@ -10,12 +11,13 @@
     <% end %>
   </div>
 
+<%# Search by category & text %>
   <%= form_with url: items_path, html: { data:
                                   {filter_target: "form",
                                   action: "keyup->filter#showResults"}},
                                   method: :get do |f| %>
 
-
+<%# Search by categ %>
     <div class="mt-2 mb-2">
       <% Item::CATEGORIES.each do |category| %>
         <%= f.label :filter, category%>

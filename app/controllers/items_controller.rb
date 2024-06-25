@@ -6,14 +6,15 @@ class ItemsController < ApplicationController
     @items = Item.all
 
     if params[:location].present?
-      @owners = User.near(params[:location], params[:distance] || 30, order: :distance)
+      @owners = User.near(params[:location], 30, order: :distance)
       @items = Item.where(user: @owners.to_a)
     end
 
     if params[:query].present?
-      @items = @items.search_by_name_and_category("%#{params[:query]}%")
+      @items = Item.search_by_name_and_category("%#{params[:query]}%")
+
     elsif params[:filter].present?
-      @items = @items.search_by_category("%#{params[:filter]}%")
+      @items = Item.search_by_category("%#{params[:filter]}%")
     end
 
     @users = @items.map{ |item| item.user}.uniq
@@ -25,11 +26,13 @@ class ItemsController < ApplicationController
         marker_html: render_to_string(partial: "items/marker", locals: {user: user}, formats: [:html])
       }
     end
+
     respond_to do |format|
       format.html
       format.text { render partial: "items/index",
                     locals: { items: @items }, formats: [:html] }
     end
+
   end
 
   def show
