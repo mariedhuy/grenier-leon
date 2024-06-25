@@ -11,7 +11,7 @@
           <% end %>
           <div class="card-request-infos">
             <h2><%= request.item.name %></h2>
-            <p><i class="fa-regular fa-calendar"></i> du <%= request.start_date.strftime("%a. %d %B") %> au <%= request.end_date.strftime("%a. %d %B") %></p>
+            <p><i class="fa-regular fa-calendar"></i> du <%= request.start_date %> au <%= request.end_date %></p>
             <p>demande faite par <%= request.user.name %></p>
           </div>
           <div class="card-request-buttons">
@@ -43,7 +43,7 @@
           <% end %>
           <div class="card-request-infos">
             <h2><%= request.item.name %></h2>
-            <p><i class="fa-regular fa-calendar"></i> du <%= request.start_date.strftime("%a. %d %B") %> au <%= request.end_date.strftime("%a. %d %B") %></p>
+            <p><i class="fa-regular fa-calendar"></i> du <%= request.start_date %> au <%= request.end_date %></p>
             <p>demande faite par <%= request.user.name %></p>
           </div>
           <div class="card-request-buttons">
