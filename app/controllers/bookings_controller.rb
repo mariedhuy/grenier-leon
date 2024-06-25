@@ -10,12 +10,16 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @start_date = params[:start_date] || @booking.start_date
     @end_date = params[:end_date] || @booking.end_date
-    @marker = {
-      lat: @booking.item.user.latitude,
-      lng: @booking.item.user.longitude,
-      info_window_html: render_to_string(partial: "bookings/info_window", locals: {user: @booking.item.user}, formats: [:html]),
-      marker_html: render_to_string(partial: "bookings/marker", locals: {user: @booking.item.user}, formats: [:html])
-    }
+    @users = []
+    @users << @booking.item.user
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "bookings/info_window", locals: {user: user}, formats: [:html]),
+        marker_html: render_to_string(partial: "bookings/marker", locals: {user: user}, formats: [:html])
+      }
+    end
   end
 
   def new
