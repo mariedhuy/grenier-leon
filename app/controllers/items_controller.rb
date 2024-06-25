@@ -5,11 +5,17 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
 
-    if params[:query].present?
-      @items = Item.search_by_name_and_category("%#{params[:query]}%")
-    elsif params[:filter].present?
-      @items = Item.search_by_category("%#{params[:filter]}%")
+    if params[:location].present?
+      @owners = User.near(params[:location], params[:distance] || 30, order: :distance)
+      @items = Item.where(user: @owners.to_a)
     end
+
+    if params[:query].present?
+      @items = @items.search_by_name_and_category("%#{params[:query]}%")
+    elsif params[:filter].present?
+      @items = @items.search_by_category("%#{params[:filter]}%")
+    end
+
     @users = @items.map{ |item| item.user}.uniq
     @markers = @users.map do |user|
       {
