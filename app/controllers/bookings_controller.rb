@@ -10,16 +10,6 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @start_date = params[:start_date] || @booking.start_date
     @end_date = params[:end_date] || @booking.end_date
-    @users = []
-    @users << @booking.item.user
-    @markers = @users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window_html: render_to_string(partial: "bookings/info_window", locals: {user: user}, formats: [:html]),
-        marker_html: render_to_string(partial: "bookings/marker", locals: {user: user}, formats: [:html])
-      }
-    end
   end
 
   def new
@@ -33,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.start_date = params[:start_date]
     @booking.end_date = params[:end_date]
     if @booking.save
-      redirect_to item_path(@item), notice: "Votre demande de réservation a bien été envoyée."
+      redirect_to bookings_path, notice: "Votre demande de réservation a bien été envoyée."
     else
       render :new, status: :unprocessable_entity
     end
