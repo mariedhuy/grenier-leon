@@ -20,11 +20,9 @@ export default class extends Controller {
 // Target sur input de location (dans html form)
 // Recup dans variable la valeur (ville)
 // Ajouter cette valeur dans l'url (si elle existe), on l'interpole dans url
+    const location = this.locationTarget.value
     const category = event.target.value
-    const url = `${this.formTarget.action}?filter=${category}`
-    console.log(url)
-    console.log(category)
-
+    const url = `${this.formTarget.action}?filter=${category}&location=${location}`
     fetch(url, {headers: { "Accept": "text/plain" }})
       .then(response => response.text())
       .then((data) => {
