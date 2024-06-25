@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
     @items = Item.all
 
     if params[:location].present?
-      @owners = User.near(params[:location], 30, order: :distance)
+      coord = Geocoder.coordinates(params[:location])
+      @owners = User.near(coord, 30, order: :distance)
       @items = @items.where(user: @owners.to_a)
     end
 
