@@ -1,0 +1,28 @@
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: white;
+  font-weight: 500;
+  color: #219ebc;
+  border: 1px solid #219ebc;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector:checked + label {
+  font-weight: 600;
+  background-color: #219ebc;
+  color: white;
+}
