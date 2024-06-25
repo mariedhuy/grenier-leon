@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 
   has_one_attached :photo
 
-  CATEGORIES = ["Cuisine", "Outils", "Loisir", "Électroménager"]
+  CATEGORIES = ["Cuisine", "Outils", "Loisirs", "Électroménager"]
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_category,
