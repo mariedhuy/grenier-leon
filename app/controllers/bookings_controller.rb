@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @start_date = params[:start_date] || @booking.start_date
     @end_date = params[:end_date] || @booking.end_date
-    @markers = {
+    @marker = {
       lat: @booking.item.user.latitude,
       lng: @booking.item.user.longitude,
       info_window_html: render_to_string(partial: "bookings/info_window", locals: {user: @booking.item.user}, formats: [:html]),
