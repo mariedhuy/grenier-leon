@@ -11,10 +11,10 @@
           <% end %>
           <div class="card-request-infos">
             <h2><i class="fa-solid fa-circle-check"></i> <%= booking.item.name %></h2>
-            <p>du <%= booking.start_date %> au <%= booking.end_date %></p>
+            <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date.strftime("%a. %d %B") %> au <%= booking.end_date.strftime("%a. %d %B") %></p>
             <p>objet appartenant à <%= booking.item.user.name %></p>
-            <%= link_to "Voir la réservation", booking_path(booking), class:"btn btn-blue" %>
           </div>
+            <%= link_to "Voir la réservation", booking_path(booking), class:"btn btn-blue" %>
         </div>
       <% end %>
     <% end %>
@@ -32,6 +32,7 @@
           <div class="card-request-infos">
             <h2><i class="fa-solid fa-hourglass-start"></i> <%= booking.item.name %></h2>
             <p>du <%= booking.start_date %> au <%= booking.end_date %></p>
+            <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date.strftime("%a. %d %B") %> au <%= booking.end_date.strftime("%a. %d %B") %></p>
             <p>objet appartenant à <%= booking.item.user.name %></p>
           </div>
         </div>

@@ -58,34 +58,44 @@
   background: white;
   display: flex;
   align-items: center;
+  border-radius:15px;
+
+  img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+
+  .card-request-infos {
+    padding: 16px;
+    min-width: 250px;
+
+  }
+
+  .card-request-buttons {
+    justify-content: end;
+    display: flex;
+  }
 }
 
 
 
 
-.card-request img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
 
-.card-request h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-request p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-request .card-request-infos {
-  padding: 16px;
-}
 
 
 // item
@@ -96,9 +106,41 @@
   align-items: center;
   margin-bottom: 8px;
 
- .tag {
-  position: absolute;
- }
+  .tag {
+    position: absolute;
+  }
+
+  img {
+    border-radius:15px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    text-decoration: none;
+    color: #219ebc
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    color: #f18940
+  }
+
+  .card-item-infos {
+    // padding:0 16px;
+    margin:0;
+    justify-content: center;
+    padding: 8px;
+  }
 
 }
 
@@ -119,39 +161,6 @@
   background-color: #f18940;
  }
 
-}
-
-
-.card-item img {
-  border-radius:15px;
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  opacity: 0.8;
-}
-
-.card-item h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  text-decoration: none;
-  color: #219ebc
-}
-
-.card-item p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 8px;
-  margin-top: 8px;
-  color: #f18940
-}
-
-.card-item .card-item-infos {
-  // padding:0 16px;
-  margin:0;
-  justify-content: center;
-  padding: 8px;
 }
 
 

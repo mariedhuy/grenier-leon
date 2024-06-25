@@ -11,20 +11,21 @@
           <% end %>
           <div class="card-request-infos">
             <h2><%= request.item.name %></h2>
-            <p>du <%= request.start_date %> au <%= request.end_date %></p>
+            <p><i class="fa-regular fa-calendar"></i> du <%= request.start_date.strftime("%a. %d %B") %> au <%= request.end_date.strftime("%a. %d %B") %></p>
             <p>demande faite par <%= request.user.name %></p>
           </div>
-          <%= button_to "Je valide", booking_path(request),
-                    method: :patch,
-                    form_class: 'update-alertbox',
-                    class: "btn btn-blue"
-          %>
-          <%= button_to "Je refuse", booking_path(request),
-                    method: :delete,
-                    form_class: 'delete-alertbox',
-                    class: "btn btn-orange"
-          %>
-
+          <div class="card-request-buttons">
+            <%= button_to "Je valide", booking_path(request),
+                      method: :patch,
+                      form_class: 'update-alertbox',
+                      class: "btn btn-blue"
+            %>
+            <%= button_to "Je refuse", booking_path(request),
+                      method: :delete,
+                      form_class: 'delete-alertbox',
+                      class: "btn btn-orange"
+            %>
+          </div>
         </div>
       <% end %>
     <% end %>
@@ -42,8 +43,10 @@
           <% end %>
           <div class="card-request-infos">
             <h2><%= request.item.name %></h2>
-            <p>du <%= request.start_date %> au <%= request.end_date %></p>
+            <p><i class="fa-regular fa-calendar"></i> du <%= request.start_date.strftime("%a. %d %B") %> au <%= request.end_date.strftime("%a. %d %B") %></p>
             <p>demande faite par <%= request.user.name %></p>
+          </div>
+          <div class="card-request-buttons">
             <%= link_to "Voir la réservation", booking_path(request), class:"btn btn-blue" %>
           </div>
         </div>
