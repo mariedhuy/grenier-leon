@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
       @items = @items.where(user: @owners.to_a)
     end
 
-    if params[:query].present?
-      @items = @items.search_by_name_and_category("%#{params[:query]}%")
+    if params[:item].present?
+      @items = @items.search_by_name_and_category("%#{params[:item]}%")
     elsif params[:filter].present?
       @items = @items.search_by_category("%#{params[:filter]}%")
     end

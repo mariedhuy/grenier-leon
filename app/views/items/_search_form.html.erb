@@ -6,18 +6,16 @@
       <%= text_field_tag :location,
       params[:location],
       placeholder: "Je recherche un objet à proximité de...",
+      data: {filter_target: "location"},
       class: "form-control" %>
       <%= submit_tag "Rechercher", class: "btn btn-blue mx-3" %>
     <% end %>
   </div>
 
 <%# Search by category & text %>
-  <%= form_with url: items_path, html: { data:
-                                  {filter_target: "form",
-                                  action: "keyup->filter#showResults"}},
-                                  method: :get do |f| %>
+  <%= form_with url: items_path, method: :get, data: {filter_target: "form"} do |f| %>
 
-<%# Search by categ %>
+
     <div class="mt-2 mb-2">
       <% Item::CATEGORIES.each do |category| %>
         <%= f.label :filter, category%>
@@ -25,19 +23,19 @@
                                 filter_target: "category",
                                 action: "change->filter#filterResults"
         } %>
-        <% end %>
+      <% end %>
     </div>
 
     <div class="search-form-control form-group mb-3">
-      <%= text_field_tag :query,
-      params[:query], data: {
-      filter_target: "query"},
-      class: "form-control",
-      placeholder: "Je souhaite emprunter..."
+      <%= text_field_tag :item,
+        params[:item],
+        data: {
+          filter_target: "item",
+          action: "keyup->filter#showResults"
+        },
+        class: "form-control",
+        placeholder: "Je souhaite emprunter..."
       %>
-        <%# <button name="button" type="submit" class="btn btn-blue">
-        <i class="fas fa-search"></i>Rechercher
-        </button> %>
     </div>
   <% end %>
 </div>

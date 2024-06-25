@@ -2,16 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  static targets = [ "items", "form", "query", "category" ]
+  static targets = [ "form", "items", "category", "location", "item" ]
 
   showResults(event) {
     event.preventDefault();
-// Target sur input de location (dans html form)
-// Recup dans variable la valeur (ville)
-// Ajouter cette valeur dans l'url (si elle existe), on l'interpole dans url
-    const url = `${this.formTarget.action}?query=${this.queryTarget.value}`
-    console.log(url)
-
+    const location = this.locationTarget.value
+    const url = `${this.formTarget.action}?item=${this.itemTarget.value}&location=${location}`
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
       .then((data) => {
