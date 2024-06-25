@@ -6,7 +6,9 @@ export default class extends Controller {
 
   showResults(event) {
     event.preventDefault();
-
+// Target sur input de location (dans html form)
+// Recup dans variable la valeur (ville)
+// Ajouter cette valeur dans l'url (si elle existe), on l'interpole dans url
     const url = `${this.formTarget.action}?query=${this.queryTarget.value}`
     console.log(url)
 
@@ -19,7 +21,9 @@ export default class extends Controller {
 
   filterResults(event) {
     event.preventDefault();
-
+// Target sur input de location (dans html form)
+// Recup dans variable la valeur (ville)
+// Ajouter cette valeur dans l'url (si elle existe), on l'interpole dans url
     const category = event.target.value
     const url = `${this.formTarget.action}?filter=${category}`
     console.log(url)

@@ -7,14 +7,13 @@ class ItemsController < ApplicationController
 
     if params[:location].present?
       @owners = User.near(params[:location], 30, order: :distance)
-      @items = Item.where(user: @owners.to_a)
+      @items = @items.where(user: @owners.to_a)
     end
 
     if params[:query].present?
-      @items = Item.search_by_name_and_category("%#{params[:query]}%")
-
+      @items = @items.search_by_name_and_category("%#{params[:query]}%")
     elsif params[:filter].present?
-      @items = Item.search_by_category("%#{params[:filter]}%")
+      @items = @items.search_by_category("%#{params[:filter]}%")
     end
 
     @users = @items.map{ |item| item.user}.uniq
