@@ -11,7 +11,7 @@
             <% end %>
             <div class="card-request-infos">
               <h2><i class="fa-solid fa-circle-check"></i> <%= booking.item.name %></h2>
-              <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date %> au <%= booking.end_date %></p>
+              <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date.strftime("%d/%m/%Y") %> au <%= booking.end_date.strftime("%d/%m/%Y") %></p>
               <p>objet appartenant à <%= booking.item.user.name %></p>
             </div>
             <%= link_to "Voir la réservation", booking_path(booking), class:"btn btn-blue" %>
@@ -32,7 +32,7 @@
             <% end %>
             <div class="card-request-infos">
               <h2><i class="fa-solid fa-hourglass-start"></i> <%= booking.item.name %></h2>
-              <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date %> au <%= booking.end_date %></p>
+              <p><i class="fa-regular fa-calendar"></i> du <%= booking.start_date.strftime("%d/%m/%Y") %> au <%= booking.end_date.strftime("%d/%m/%Y") %></p>
               <p>objet appartenant à <%= booking.item.user.name %></p>
             </div>
           </div>
