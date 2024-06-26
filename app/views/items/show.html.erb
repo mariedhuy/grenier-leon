@@ -26,7 +26,8 @@
 
     <% else %>
 <%# View user %>
-      <h4>Appartient à <%= @item.user.name %> (<%= @item.user.address %>)</h4>
+      <h4>Appartient à <%= @item.user.name %></h4>
+      <h4><i class="fa-solid fa-location-dot" style="color: #f18940;"></i> <%= @item.user.address %></h4>
       <p><%= @item.description %></p>
 
       <%= simple_form_for [@item, @booking] do |f| %>
