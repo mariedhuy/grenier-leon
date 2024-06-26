@@ -30,12 +30,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.item = @item
-    @booking.start_date = params[:start_date]
-    @booking.end_date = params[:end_date]
+    @booking.start_date = params[:booking][:start_date]
+    @booking.end_date = params[:booking][:end_date]
     if @booking.save
       redirect_to bookings_path, notice: "Votre demande de réservation a bien été envoyée."
     else
-      render :new, status: :unprocessable_entity
+      redirect_to item_path(@item), notice: "Veuillez renseigner des dates"
     end
   end
 

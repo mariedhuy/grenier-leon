@@ -32,27 +32,40 @@
 
       <%= simple_form_for [@item, @booking] do |f| %>
         <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
+        <%= f.input :start_date,
+            label: "Date de début",
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :end_date,
+            label: "Date de fin",
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+        <!-- <%= f.hidden_field :start_date%>
+        <%= f.hidden_field :end_date%> -->
 
-
-        <%# Form made with Date Range Picker = same as Flatpickr but w/o bugs. %>
-        <div class="input-group">
+        <!-- <div class="input-group">
           <%# Refers to documentation => date_range id + date_range name to use in the controller_date_picker %>
           <input type="text" id="date_range" name="date_range" class="js-daterangepicker form-control daterangepicker-custom-input">
-
-          <%# event listener onClick to get the user input %>
-          <%#
-          <div class="input-group-append input-group-text" onclick="$('#date_range').data('daterangepicker').toggle();">
-            <i class="bi-chevron-down"></i>
-          </div>
-          %>
         </div>
 
         <%# Initialize start_date and end_date from @bookings %>
         <input type="hidden" id="start_date" name="start_date">
-        <input type="hidden" id="end_date" name="end_date">
+        <input type="hidden" id="end_date" name="end_date"> -->
 
       <%= f.submit "Envoyer ma demande", class: "btn btn-blue" %>
       <% end %>
+
+
+      <!--<%= simple_form_for [@item, @booking] do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
+        <div class="input-group">
+          <input type="text" id="date_range" name="date_range" class="js-daterangepicker form-control daterangepicker-custom-input">
+        </div>
+        <input type="hidden" id="start_date" name="start_date">
+        <input type="hidden" id="end_date" name="end_date">
+      <%= f.submit "Envoyer ma demande", class: "btn btn-blue" %>
+      <% end %> -->
+
 
 <%# Script refers to Date Range Picker %>
 <%# 1. Fetch the input and parameters %>
@@ -60,7 +73,7 @@
 <%# 3. Set the start_date and end_date values %>
 <%# 4. Submit the form %>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(function() {
     const today = moment().startOf('day');
     $('input[name="date_range"]').daterangepicker({
@@ -74,7 +87,7 @@
       $('#end_date').val(end.format('YYYY-MM-DD'));
     });
   });
-</script>
+</script>-->
     <% end %>
 
     </div>
