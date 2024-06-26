@@ -18,8 +18,12 @@
 }
 
 #items-map {
-  height: 100vh;
+  height: 600px;
   position: sticky;
   top: 100px;
   margin-left: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
 }
+

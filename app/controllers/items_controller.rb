@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @items = Item.all
+    @items = Item.where.not(user: current_user)
 
     if params[:location].present?
       @owners = User.near(params[:location], 30, order: :distance)
