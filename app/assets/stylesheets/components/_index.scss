@@ -49,3 +49,9 @@ h4 {
 // body {
 //   background-color: #f6f68c1f;
 // }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
