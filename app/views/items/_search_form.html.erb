@@ -1,30 +1,8 @@
 <div class="row mt-4">
 
-<%# Search by city %>
-  <div class="search-form-control form-group mb-3">
-    <%= form_tag items_path, method: :get do %>
-      <%= text_field_tag :location,
-      params[:location],
-      placeholder: "Je recherche un objet à proximité de...",
-      data: {filter_target: "location"},
-      class: "form-control" %>
-      <%= submit_tag "Rechercher", class: "btn btn-blue mx-3" %>
-    <% end %>
-  </div>
 
 <%# Search by category & text %>
   <%= form_with url: items_path, method: :get, data: {filter_target: "form"} do |f| %>
-    <div class="mt-2 mb-2">
-      <% Item::CATEGORIES.each do |category| %>
-
-        <%= f.radio_button :filter, category, data: {
-                                filter_target: "category",
-                                action: "change->filter#filterResults"
-        } %>
-        <%= f.label :filter, category, class: "tag-search"%>
-      <% end %>
-    </div>
-
     <div class="search-form-control form-group mb-3">
       <%= text_field_tag :item,
         params[:item],
@@ -36,5 +14,32 @@
         placeholder: "Je souhaite emprunter..."
       %>
     </div>
+    <div class="mt-2 mb-2">
+      <% Item::CATEGORIES.each do |category| %>
+
+        <%= f.radio_button :filter, category, data: {
+          filter_target: "category",
+                                action: "change->filter#filterResults"
+        } %>
+        <%= f.label :filter, category, class: "tag-search"%>
+      <% end %>
+    </div>
   <% end %>
+
+
+
+<%# Search by city %>
+  <div class="search-form-control form-group mb-3">
+    <%= form_tag items_path, method: :get do %>
+      <%= text_field_tag :location,
+      params[:location],
+      placeholder: "à proximité de...",
+      data: {filter_target: "location"},
+      class: "form-control" %>
+      <%= submit_tag "Rechercher", class: "btn btn-blue mx-3" %>
+    <% end %>
+  </div>
+
+
+
 </div>
